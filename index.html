@@ -1,0 +1,43 @@
+---
+layout: default
+title: Home
+page-class: page--home
+---
+<section class="pam">
+	<h1>Bla bla bla</h1>
+{% for post in paginator.posts %}
+	<article>
+        <h2 class="post__title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<!--     {{ post.content }} -->
+    	<span class="post__tags">
+  		<!-- 
+        {% for tag in post.tags %}
+            <a href="/tags/{{ tag }}">{{ tag }}</a>,
+        {% endfor %}
+         -->
+    	</span>
+	</article>
+{% endfor %}
+</section>
+
+<ol class="nav pam pagination">
+    <li class="pagination__prev">
+        {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1 %}
+            <a href="/">Previous</a>
+        {% else %}
+            <a href="/page{{paginator.previous_page}}">Previous</a>
+        {% endif %}
+        {% else %}
+            Previous
+        {% endif %}
+    </li><!--
+    
+ --><li class="pagination__next">
+        {% if paginator.next_page %}
+            <a href="/page{{paginator.next_page}}">Next</a>
+        {% else %}
+            Next
+        {% endif %}
+    </li>
+</ol>
